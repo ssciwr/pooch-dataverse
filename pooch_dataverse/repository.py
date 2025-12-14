@@ -126,11 +126,16 @@ class DataverseRepository(DataRepository):  # pylint: disable=missing-class-docs
         )
         return download_url
 
-def create_registry(self) -> dict[str, str]:
-    for filedata in self.api_response.json()["data"]["latestVersion"]["files"]:
-            pooch.registry[filedata["dataFile"]["filename"]] = (
-                f"md5:{filedata['dataFile']['md5']}"
-            )
+    def create_registry(self) -> dict[str, str]:
+        """
+        Create a registry dictionary using the data repository's API
+
+        Returns
+        ----------
+        registry : Dict[str,str]
+            The registry dictionary.
+        """
+        return {k: v["checksum"] for k, v in self.record_files.items()}
 
 '''
     def populate_registry(self, pooch):
