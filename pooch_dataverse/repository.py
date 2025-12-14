@@ -1,8 +1,31 @@
+from typing import Optional
+from functools import cached_property
+
+from pooch_doi import DataRepository
+from pooch_doi.repository import DEFAULT_TIMEOUT
+
 class DataverseRepository(DataRepository):  # pylint: disable=missing-class-docstring
     def __init__(self, doi, archive_url):
         self.archive_url = archive_url
         self.doi = doi
         self._api_response = None
+        
+    @property
+    def name(self) -> str:
+        """
+        The display name of the repository.
+        """
+        return "Dataverse"  # pragma: no cover
+
+    @property
+    def homepage(self) -> str:
+        """
+        The homepage URL of the repository.
+        This could be the URL of the actual service or the URL of the project,
+        if it is a data repository that allows self-hosting.
+        """
+        return "https://dataverse.org/"  # pragma: no cover
+
 
     @classmethod
     def initialize(cls, doi, archive_url):
@@ -103,17 +126,25 @@ class DataverseRepository(DataRepository):  # pylint: disable=missing-class-docs
         )
         return download_url
 
+def create_registry(self) -> dict[str, str]:
+    for filedata in self.api_response.json()["data"]["latestVersion"]["files"]:
+            pooch.registry[filedata["dataFile"]["filename"]] = (
+                f"md5:{filedata['dataFile']['md5']}"
+            )
+
+'''
     def populate_registry(self, pooch):
-        """
+       """
         Populate the registry using the data repository's API
 
         Parameters
         ----------
         pooch : Pooch
             The pooch instance that the registry will be added to.
-        """
+       """
 
         for filedata in self.api_response.json()["data"]["latestVersion"]["files"]:
             pooch.registry[filedata["dataFile"]["filename"]] = (
                 f"md5:{filedata['dataFile']['md5']}"
             )
+'''
