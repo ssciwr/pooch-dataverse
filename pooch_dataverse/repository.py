@@ -5,11 +5,22 @@ from pooch_doi import DataRepository
 from pooch_doi.repository import DEFAULT_TIMEOUT
 
 class DataverseRepository(DataRepository):  # pylint: disable=missing-class-docstring
-    def __init__(self, doi, archive_url):
-        self.archive_url = archive_url
-        self.doi = doi
-        self._api_response = None
-        
+    # A URL for an issue tracker for this implementation
+    issue_tracker: Optional[str] = "https://github.com/ssciwr/pooch-dataverse/issues"
+
+    # Whether the repository allows self-hosting
+    allows_self_hosting: bool = True
+
+    # Whether this repository is fully supported (meaning that all public data
+    # from this repository is accessible via pooch).
+    full_support: bool = True
+
+    # Whether this implementation performs requests to external services
+    # during initialization. We use this to minimize the execution time.
+    init_requires_requests: bool = True
+
+
+
     @property
     def name(self) -> str:
         """
