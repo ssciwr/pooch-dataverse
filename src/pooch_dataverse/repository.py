@@ -4,6 +4,8 @@ from functools import cached_property
 from pooch_doi import DataRepository
 from pooch_doi.repository import DEFAULT_TIMEOUT
 
+from .utils import parse_url
+
 class DataverseRepository(DataRepository):  # pylint: disable=missing-class-docstring
     # A URL for an issue tracker for this implementation
     issue_tracker: Optional[str] = "https://github.com/ssciwr/pooch-dataverse/issues"
