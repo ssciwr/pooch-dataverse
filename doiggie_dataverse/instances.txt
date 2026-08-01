@@ -93,6 +93,7 @@ https://data.sciencespo.fr/dataverse/cdsp
 https://data.tu-dortmund.de
 https://data.univ-gustave-eiffel.fr/
 https://data.worldagroforestry.org/
+https://datadoi.ee
 https://datahub.polen.fccn.pt/
 https://datahub.tec.mx
 https://dataportal.ing.pan.pl/
@@ -144,6 +145,7 @@ https://dataverse.lib.unb.ca/
 https://dataverse.lib.virginia.edu/
 https://dataverse.ln.edu.hk/
 https://dataverse.nl/
+https://dataverse.nl/dataverse/eur
 https://dataverse.nl/dataverse/tiu
 https://dataverse.no/
 https://dataverse.no/dataverse/trolling
@@ -163,7 +165,9 @@ https://dataverse.unc.edu/dataverse/saa
 https://dataverse.unimi.it/
 https://dataverse.unisimon.edu.co
 https://dataverse.unr.edu.ar/
+https://dataverse.whoi.edu
 https://dataverse.yale-nus.edu.sg/
+https://dataverse.yale.edu/dataverse/isps
 https://datos.pucp.edu.pe/
 https://datos.uchile.cl/
 https://datos.unlp.edu.ar
